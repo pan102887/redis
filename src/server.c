@@ -7272,6 +7272,7 @@ int main(int argc, char **argv) {
     redisSetCpuAffinity(server.server_cpulist);
     setOOMScoreAdj(-1);
 
+    /* when server start up, program will loop in the aeMain function */
     aeMain(server.el);
     aeDeleteEventLoop(server.el);
     return 0;
